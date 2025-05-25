@@ -34,7 +34,7 @@ int main()
   double card2_superPower;
 
   // Variavel de controle da propriedade escolhida
-  char escolha;
+  int escolha;
 
   
   printf("-----------------------------------------------------------------------\n");
@@ -152,7 +152,8 @@ int main()
   printf("-----------------------------------------------------------------------\n\n");
   scanf("%d", &escolha);
 
-  // Verificação da propriedade escolhida e comparação dos valores
+  /*
+  // Verificação da propriedade escolhida e comparação dos valores usando if else-if
   if (escolha == 1) {
     printf("População: Carta(%d) venceu\n", (card2_population > card1_population) + 1);
   } else if (escolha == 2) {
@@ -167,6 +168,85 @@ int main()
     printf("PIB per Capita: Carta(%d) venceu\n", (card2_pibPerCapita > card1_pibPerCapita) + 1);
   } else if (escolha == 7) {
     printf("Super Poder: Carta(%d) venceu\n", (card2_superPower > card1_superPower) + 1);
+  }
+*/
+  // Verificação da propriedade escolhida e comparação dos valores usando switch
+  switch (escolha)
+  {
+  case 1:
+    if (card1_population == card2_population)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("População: Carta(%d) venceu\n", (card2_population > card1_population) + 1);
+    }
+    break;
+  case 2:
+    if (card1_area == card2_area)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("Área: Carta(%d) venceu\n", (card2_area > card1_area) + 1);
+    }
+    break;
+  case 3:
+    if (card1_pib == card2_pib)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("PIB: Carta(%d) venceu\n", (card2_pib > card1_pib) + 1);
+    }
+    break;
+  case 4:
+    if (card1_touristPointNumber == card2_touristPointNumber)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("Pontos Turísticos: Carta(%d) venceu\n", (card2_touristPointNumber > card1_touristPointNumber) + 1);
+    }
+    break;
+  case 5:
+    if (card1_populationalDensity == card2_populationalDensity)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("Densidade Populacional: Carta(%d) venceu\n", (card2_populationalDensity < card1_populationalDensity) + 1);
+    }
+    break;
+  case 6:
+    if (card1_pibPerCapita == card2_pibPerCapita)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("PIB per Capita: Carta(%d) venceu\n", (card2_pibPerCapita > card1_pibPerCapita) + 1);
+    }
+    break;
+  case 7:
+    if (card1_superPower == card2_superPower)
+    {
+      printf("Empatou");
+    }
+    else
+    {
+      printf("Super Poder: Carta(%d) venceu\n", (card2_superPower > card1_superPower) + 1);
+    }
+    break;
+  
+  default:
+    printf("Emapatou");
+    break;
   }
 
   return 0;
