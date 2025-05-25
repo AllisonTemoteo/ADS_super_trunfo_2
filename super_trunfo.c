@@ -5,6 +5,7 @@
  */
 
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
@@ -32,6 +33,10 @@ int main()
   float card2_pibPerCapita;
   double card2_superPower;
 
+  // Variavel de controle da propriedade escolhida
+  char escolha;
+
+  
   printf("-----------------------------------------------------------------------\n");
   printf("Cadastro de cartas - Super Trunfo - v0.1\n\n");
   printf("Por favor, insira os dados solicitados respeitando os valores esperados\n");
@@ -89,6 +94,8 @@ int main()
   printf("Quantidade de pontos turísticos: ");
   scanf("%d", &card2_touristPointNumber);
 
+  getchar();
+
   // Calcula a densidade populacional, PIB Per Capita e super poder da carta 1
   card1_populationalDensity = card1_population / card1_area;
   card1_pibPerCapita = card1_pib / card1_population;
@@ -107,7 +114,7 @@ int main()
   printf("Código da carta: %c%s\n", card1_estate, card1_cardCode);
   printf("Nome da cidade: %s\n", card1_cityName);
   printf("População: %d\n", card1_population);
-  printf("Área: %f\n km²", card1_area);
+  printf("Área: %f km²\n", card1_area);
   printf("PIB: %f bilhões de reais\n", card1_pib);
   printf("Número de pontos turísticos: %d\n", card1_touristPointNumber);
   printf("Densidade Populacional: %.2f hab/km²\n", card1_populationalDensity);
@@ -121,8 +128,8 @@ int main()
   printf("Código da carta: %c%s\n", card2_estate, card2_cardCode);
   printf("Nome da cidade: %s\n", card2_cityName);
   printf("População: %d\n", card2_population);
-  printf("Área: %f\n km²", card2_area);
-  printf("PIB: %f\n bilhões de reais", card2_pib);
+  printf("Área: %f km²\n", card2_area);
+  printf("PIB: %f bilhões de reais\n", card2_pib);
   printf("Número de pontos turísticos: %d\n", card2_touristPointNumber);
   printf("Densidade Populacional: %.2f hab/km²\n", card2_populationalDensity);
   printf("PIB per Capita: %.2f reais\n", card2_pibPerCapita);
@@ -133,14 +140,34 @@ int main()
   printf("-----------------------------------------------------------------------\n\n");
   printf("Comparação de Cartas:\n\n");
 
-  // Compara os dados das cartas e imprime a carta vencedora
-  printf("População: Carta(%d) venceu\n", (card2_population > card1_population) + 1);
-  printf("Área: Carta(%d) venceu\n", (card2_area > card1_area) + 1);
-  printf("PIB: Carta(%d) venceu\n", (card2_pib > card1_pib) + 1);
-  printf("Pontos Turísticos: Carta(%d) venceu\n", (card2_touristPointNumber > card1_touristPointNumber) + 1);
-  printf("Densidade Populacional: Carta(%d) venceu\n", (card2_populationalDensity < card1_populationalDensity) + 1);
-  printf("PIB per Capita: Carta(%d) venceu\n", (card2_pibPerCapita > card1_pibPerCapita) + 1);
-  printf("Super Poder: Carta(%d) venceu\n", (card2_superPower > card1_superPower) + 1);
+  // Menu de seleção da propriedade que será comparada
+  printf("Escolha a propriedade para comparação\n");
+  printf("1 - População\n");
+  printf("2 - Área\n");
+  printf("3 - PIB\n");
+  printf("4 - Número de pontos turísticos\n");
+  printf("5 - Densidade Populacional\n");
+  printf("6 - PIB per Capita\n");
+  printf("7 - Super Poder\n");
+  printf("-----------------------------------------------------------------------\n\n");
+  scanf("%d", &escolha);
+
+  // Verificação da propriedade escolhida e comparação dos valores
+  if (escolha == 1) {
+    printf("População: Carta(%d) venceu\n", (card2_population > card1_population) + 1);
+  } else if (escolha == 2) {
+    printf("Área: Carta(%d) venceu\n", (card2_area > card1_area) + 1);
+  } else if (escolha == 3) {
+    printf("PIB: Carta(%d) venceu\n", (card2_pib > card1_pib) + 1);
+  } else if (escolha == 4) {
+    printf("Pontos Turísticos: Carta(%d) venceu\n", (card2_touristPointNumber > card1_touristPointNumber) + 1);
+  } else if (escolha == 5) {
+    printf("Densidade Populacional: Carta(%d) venceu\n", (card2_populationalDensity < card1_populationalDensity) + 1);
+  } else if (escolha == 6) {
+    printf("PIB per Capita: Carta(%d) venceu\n", (card2_pibPerCapita > card1_pibPerCapita) + 1);
+  } else if (escolha == 7) {
+    printf("Super Poder: Carta(%d) venceu\n", (card2_superPower > card1_superPower) + 1);
+  }
 
   return 0;
 }
